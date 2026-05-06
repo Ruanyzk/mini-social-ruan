@@ -1,7 +1,7 @@
 //=== ESTADO (dados da aplicação) === 
 
 let likeCount = 0;
-let dislikeCount = 0;
+let deslikeCount = 0;
 let curtido = false;
 let descurtido = false;
 
@@ -44,7 +44,7 @@ function descurtir() {
 // === VIEW (interface/renderização)===
 function atualizarTela(){
   document.getElementById("likeCount").innerText = likeCount;
-  document.getElementById("dislikeCount").innerText = dislikeCount;
+  document.getElementById("deslikeCount").innerText = dislikeCount;
 }
 
 //=== CONTROLLER (intermediação)===
@@ -61,7 +61,7 @@ function clicarDescurtir(){
 // === EVENTOS ===
 
 document.getElementById("likeBtn").addEventListener("click", clicarCurtir);
-document.getElementById("dislikeBtn").addEventListener("click", clicarDescurtir);
+document.getElementById("deslikeBtn").addEventListener("click", clicarDescurtir);
 
 // === INICIALIZAÇÃO ===  
 
