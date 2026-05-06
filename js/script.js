@@ -1,50 +1,70 @@
-//=== ESTADO (dados da aplicação) === 
+//=== BANCO DE DADOS (JSON Simulado) === 
 
-let likeCount = 0;
-let deslikeCount = 0;
-let curtido = false;
-let descurtido = false;
+let post = {
+  likecount: 0,
+  deslikecount: 0,
+  curtido: false,
+  descurtido: false
+}
 
 //=== SERVICE (regras de negócio) === 
 
 function curtir() {
-  if (curtido == false){
-    likeCount++;
-    curtido = true;
+  if (post.curtido == false){
+    post.likeCount++;
+    post.curtido = true;
 
-    if(descurtido == true){
-      dislikeCount--;
-      descurtido = false;
+    if(post.descurtido == true){
+      post.deslikeCount--;
+      post.descurtido = false;
     }
 
   }else{
-    likeCount--;
-    curtido = false;
+    postlikeCount--;
+    post.curtido = false;
   }
 
 }
 
 function descurtir() {
-  if(descurtido == false){
-    dislikeCount++;
-    descurtido = true;
+  if(post.descurtido == false){
+    post.deslikeCount++;
+    post.descurtido = true;
 
-    if(curtido == true){
-      likeCount--;
-      curtido = false;
+    if(post.curtido == true){
+      post.likeCount--;
+      post.curtido = false;
     }
 
   }
   else{
-    dislikeCount--;
-    descurtido = false;
+    post.deslikeCount--;
+    post.descurtido = false;
   }
 }
+
+//== API SIMULADO === //
+
+function getPost(){
+return post;
+}
+
+function likePost(){
+  curtir();
+return post;
+}
+
+function deslikePost(){
+  descurtir();
+  return post;
+}
+
+
 
 // === VIEW (interface/renderização)===
 function atualizarTela(){
   document.getElementById("likeCount").innerText = likeCount;
-  document.getElementById("deslikeCount").innerText = dislikeCount;
+  document.getElementById("deslikeCount").innerText = deslikeCount;
 }
 
 //=== CONTROLLER (intermediação)===
